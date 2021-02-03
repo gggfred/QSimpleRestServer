@@ -38,25 +38,6 @@ QString RESTRequest::path()
     return m_Request->path();
 }
 
-QJsonObject RESTRequest::postDataJson()
-{
-    QJsonObject json;
-
-    QList<QByteArray> pairs = m_Request->body().split('&');
-
-    for (QByteArray pair : pairs)
-    {
-        QList<QByteArray> data = pair.split('=');
-
-        QString key = QString::fromLocal8Bit(data.at(0));
-        QString value = QString::fromLocal8Bit(data.at(1));
-
-        json.insert(key, value);
-    }
-
-    return json;
-}
-
 QByteArray RESTRequest::postData()
 {
     return m_Request->body();

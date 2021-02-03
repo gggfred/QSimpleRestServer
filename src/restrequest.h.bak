@@ -1,7 +1,6 @@
 #ifndef RESTREQUEST_H
 #define RESTREQUEST_H
 
-#include <QJsonObject>
 #include <QObject>
 
 #include "http/qhttprequest.h"
@@ -19,7 +18,6 @@ public:
 
     QMap<QString, QString> params();
     QString path();
-    QJsonObject postDataJson();
     QByteArray postData();
     RESTResult * result(){ return &m_Result; }
     QString host();
